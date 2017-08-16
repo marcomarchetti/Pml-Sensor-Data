@@ -1,4 +1,4 @@
-# Practical Machine Learning Sensor Data
+# Practical Machine Learning (Sensor Data)
 
 Coursera course: Practical Machine Learning
 
