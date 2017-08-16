@@ -186,15 +186,16 @@ trainRaw &lt;- read.csv(&quot;pml-training.csv&quot;,na.strings=c(&quot;NA&quot;
 testRaw &lt;- read.csv(&quot;pml-testing.csv&quot;,na.strings=c(&quot;NA&quot;,&quot;#DIV/0!&quot;,&quot;&quot;))</code></pre>
 <div id="exploring" class="section level3">
 <h3>Exploring</h3>
+<p>We will explore the raw pml training set to detect main information on data.</p>
 <pre class="r"><code>class(trainRaw$classe)</code></pre>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <pre class="r"><code>levels(trainRaw$classe)</code></pre>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot;</code></pre>
 <pre class="r"><code>dim(trainRaw) # 19622 observations and 160 variables</code></pre>
 <pre><code>## [1] 19622   160</code></pre>
-<pre class="r"><code>length(which(as.numeric(colSums(is.na(trainRaw)))==0)) # how many NA</code></pre>
-<pre><code>## [1] 60</code></pre>
-<p>The Training set has <strong>19622</strong> observations and <strong>160</strong> variables (<strong>60</strong> are mainly NA) and the testing data set contains <strong>20</strong> observations.</p>
+<pre class="r"><code>length(which(as.numeric(colSums(is.na(trainRaw)))!=0)) # how many column with NA</code></pre>
+<pre><code>## [1] 100</code></pre>
+<p>The Training set has <strong>19622</strong> observations and <strong>160</strong> variables. There are a lot of missing data, <strong>100</strong> variables contains mainly NA (all greater than 19000 NA) . The testing data set contains <strong>20</strong> observations.</p>
 </div>
 <div id="cleaning" class="section level3">
 <h3>Cleaning</h3>

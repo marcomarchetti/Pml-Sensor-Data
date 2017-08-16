@@ -43,6 +43,7 @@ testRaw <- read.csv("pml-testing.csv",na.strings=c("NA","#DIV/0!",""))
 ```
 
 ### Exploring
+We will explore the raw pml training set to detect main information on data. 
 
 ```r
 class(trainRaw$classe)
@@ -69,13 +70,14 @@ dim(trainRaw) # 19622 observations and 160 variables
 ```
 
 ```r
-length(which(as.numeric(colSums(is.na(trainRaw)))==0)) # how many NA
+length(which(as.numeric(colSums(is.na(trainRaw)))!=0)) # how many column with NA
 ```
 
 ```
-## [1] 60
+## [1] 100
 ```
-The Training set has **19622** observations and **160** variables (**60** are mainly NA) and the testing data set contains **20** observations.  
+The Training set has **19622** observations and **160** variables. There are a lot of missing data, **100** variables contains mainly NA (all greater than 19000 NA)
+. The testing data set contains **20** observations.  
 
 ### Cleaning
 The data have a lot of NA values so we will remove all NA columns.  
