@@ -42,7 +42,7 @@ trainRaw <- read.csv("pml-training.csv",na.strings=c("NA","#DIV/0!",""))
 testRaw <- read.csv("pml-testing.csv",na.strings=c("NA","#DIV/0!",""))
 ```
 
-###Exploring
+### Exploring
 
 ```r
 class(trainRaw$classe)
@@ -77,7 +77,7 @@ length(which(as.numeric(colSums(is.na(trainRaw)))==0)) # how many NA
 ```
 The Training set has **19622** observations and **160** variables (**60** are mainly NA) and the testing data set contains **20** observations.  
 
-###Cleaning
+### Cleaning
 The data have a lot of NA values so we will remove all NA columns.  
 We will also remove the first seven predictors since these variables includes log information (user_name, timestamp....) and are not related to the activity measurements.
 
@@ -91,7 +91,7 @@ testClean <- testClean[,-(1:7)]
 ```
 After the cleaning phase the train (trainClean) and the test (testClean) data sets remains with **53** variables.
 
-###Data Partitioning
+### Data Partitioning
 Since we will be predicting classes in the testing dataset, we will split the training data into a training set (60%) and a validation set (40%).
 We will use the training set to train the model and the validation set to assess the model performance.
 
@@ -448,7 +448,7 @@ pred
 ## Levels: A B C D E
 ```
 
-##Conclusion
+## Conclusion
 The Random Forest classification algorithms was selected, the accuracy and out of sample error are acceptable to classify new data from test data set. On the other side the accuracy is high and this it makes us feel a little bit of overfitting. We used cross validation when we builded random forests but sometimes Random Forest can lead to overfitting. Both CART and Random Forest indicates that the most differentiating variable is the roll belt.
 
 ## References 
