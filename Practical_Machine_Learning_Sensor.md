@@ -431,6 +431,7 @@ bwplot(resamps)
 ```
 
 ![](Practical_Machine_Learning_Sensor_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+  
 Based on the assessment of these 3 model both Gradient Boosting and Random Forests outperform the Classification and Regression Trees model.  
 We choose Random Forests as our model because being slightly more accurate then Gradient Boosting and it's out of sample error is the lowest (0.0076).  
 
